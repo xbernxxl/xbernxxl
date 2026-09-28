@@ -7,12 +7,10 @@
       <stop offset="100%" stop-color="#030811" />
     </linearGradient>
 
-    <!-- Resplandor neón para texto y nodos -->
+    <!-- Resplandor neón suave para nodos (se mantiene porque es sutil) -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur1" />
-      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur2" />
       <feMerge>
-        <feMergeNode in="blur2" />
         <feMergeNode in="blur1" />
         <feMergeNode in="SourceGraphic" />
       </feMerge>
@@ -22,10 +20,10 @@
     <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#38bdf8" />
       <stop offset="50%" stop-color="#00e5ff" />
-      <stop offset="100%" stop-color="#00a8ff" />
+      <stop offset="100%" stop-color="#38bdf8" />
     </linearGradient>
 
-    <!-- Gradientes de la malla low-poly -->
+    <!-- Gradientes de la malla low-poly (mantenidos) -->
     <linearGradient id="polyGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.25" />
       <stop offset="100%" stop-color="#0055ff" stop-opacity="0.03" />
@@ -42,61 +40,15 @@
     </linearGradient>
   </defs>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;display=swap');
-
-    /* Animación del texto: Resplandor pulsante y ligero flotado */
-    .animated-title {
-      font-family: 'Orbitron', 'Segoe UI', system-ui, -apple-system, sans-serif;
-      font-weight: 900;
-      font-size: 40px;
-      letter-spacing: 4px;
-      fill: url(#textGrad);
-      animation: floatGlow 3.5s infinite ease-in-out;
-      transform-origin: center;
-    }
-
-    @keyframes floatGlow {
-      0%, 100% {
-        transform: translateY(0px);
-        filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.45));
-      }
-      50% {
-        transform: translateY(-5px);
-        filter: drop-shadow(0 0 24px rgba(0, 229, 255, 0.95)) drop-shadow(0 0 8px #ffffff);
-      }
-    }
-
-    /* Animación de los nodos */
-    .node-pulse {
-      animation: pulse 3s infinite ease-in-out;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.4; transform: scale(0.9); }
-      50% { opacity: 1; transform: scale(1.2); }
-    }
-
-    .edge {
-      stroke: #00e5ff;
-      stroke-width: 0.85;
-      stroke-opacity: 0.45;
-    }
-    .edge-dim {
-      stroke: #0077b6;
-      stroke-width: 0.6;
-      stroke-opacity: 0.28;
-    }
-  </style>
-
   <!-- Fondo base -->
   <rect width="1200" height="420" fill="url(#bgGrad)" />
 
-  <!-- Destellos de luz difusos -->
+  <!-- Destellos de luz difusos (mantenidos) -->
   <circle cx="280" cy="220" r="150" fill="#00e5ff" opacity="0.08" filter="url(#glow)" />
   <circle cx="850" cy="210" r="180" fill="#0072ff" opacity="0.08" filter="url(#glow)" />
   <circle cx="600" cy="210" r="140" fill="#38bdf8" opacity="0.10" filter="url(#glow)" />
 
-  <!-- Malla de polígonos (Low-Poly Cyber Mesh) -->
+  <!-- Malla de polígonos (mantenida) -->
   <polygon points="0,260 90,210 180,250 80,300" fill="url(#polyGrad1)" />
   <polygon points="90,210 180,250 270,170" fill="url(#polyGrad2)" />
   <polygon points="180,250 270,170 340,235" fill="url(#polyGrad3)" />
@@ -117,63 +69,65 @@
   <polygon points="1040,240 1120,190 1200,250" fill="url(#polyGrad3)" />
   <polygon points="1040,240 1200,250 1140,325" fill="url(#polyGrad1)" />
 
-  <!-- Aristas y conexiones -->
-  <g>
-    <line x1="0" y1="260" x2="90" y2="210" class="edge" />
-    <line x1="90" y1="210" x2="180" y2="250" class="edge" />
-    <line x1="0" y1="260" x2="80" y2="300" class="edge-dim" />
-    <line x1="80" y1="300" x2="180" y2="250" class="edge-dim" />
-    <line x1="90" y1="210" x2="270" y2="170" class="edge" />
-    <line x1="180" y1="250" x2="270" y2="170" class="edge" />
-    <line x1="180" y1="250" x2="340" y2="235" class="edge" />
-    <line x1="180" y1="250" x2="280" y2="320" class="edge-dim" />
-    <line x1="280" y1="320" x2="340" y2="235" class="edge-dim" />
-    <line x1="270" y1="170" x2="440" y2="180" class="edge" />
-    <line x1="270" y1="170" x2="340" y2="235" class="edge" />
-    <line x1="340" y1="235" x2="440" y2="180" class="edge" />
-    <line x1="340" y1="235" x2="510" y2="255" class="edge" />
-    <line x1="340" y1="235" x2="420" y2="330" class="edge-dim" />
-    <line x1="420" y1="330" x2="510" y2="255" class="edge-dim" />
-    <line x1="440" y1="180" x2="600" y2="165" class="edge" />
-    <line x1="440" y1="180" x2="510" y2="255" class="edge" />
-    <line x1="510" y1="255" x2="600" y2="165" class="edge" />
-    <line x1="510" y1="255" x2="690" y2="225" class="edge" />
-    <line x1="510" y1="255" x2="620" y2="320" class="edge-dim" />
-    <line x1="620" y1="320" x2="690" y2="225" class="edge-dim" />
-    <line x1="600" y1="165" x2="770" y2="155" class="edge" />
-    <line x1="600" y1="165" x2="690" y2="225" class="edge" />
-    <line x1="690" y1="225" x2="770" y2="155" class="edge" />
-    <line x1="690" y1="225" x2="860" y2="230" class="edge" />
-    <line x1="690" y1="225" x2="780" y2="315" class="edge-dim" />
-    <line x1="780" y1="315" x2="860" y2="230" class="edge-dim" />
-    <line x1="770" y1="155" x2="950" y2="175" class="edge" />
-    <line x1="770" y1="155" x2="860" y2="230" class="edge" />
-    <line x1="860" y1="230" x2="950" y2="175" class="edge" />
-    <line x1="860" y1="230" x2="1040" y2="240" class="edge" />
-    <line x1="860" y1="230" x2="960" y2="320" class="edge-dim" />
-    <line x1="960" y1="320" x2="1040" y2="240" class="edge-dim" />
-    <line x1="950" y1="175" x2="1120" y2="190" class="edge" />
-    <line x1="950" y1="175" x2="1040" y2="240" class="edge" />
-    <line x1="1040" y1="240" x2="1120" y2="190" class="edge" />
-    <line x1="1040" y1="240" x2="1200" y2="250" class="edge" />
-    <line x1="1040" y1="240" x2="1140" y2="325" class="edge-dim" />
-    <line x1="1140" y1="325" x2="1200" y2="250" class="edge-dim" />
+  <!-- Aristas y conexiones (mantenidas) -->
+  <g stroke="#00e5ff" stroke-width="0.85" stroke-opacity="0.45">
+    <line x1="0" y1="260" x2="90" y2="210" />
+    <line x1="90" y1="210" x2="180" y2="250" />
+    <line x1="90" y1="210" x2="270" y2="170" />
+    <line x1="180" y1="250" x2="270" y2="170" />
+    <line x1="180" y1="250" x2="340" y2="235" />
+    <line x1="270" y1="170" x2="440" y2="180" />
+    <line x1="270" y1="170" x2="340" y2="235" />
+    <line x1="340" y1="235" x2="440" y2="180" />
+    <line x1="340" y1="235" x2="510" y2="255" />
+    <line x1="440" y1="180" x2="600" y2="165" />
+    <line x1="440" y1="180" x2="510" y2="255" />
+    <line x1="510" y1="255" x2="600" y2="165" />
+    <line x1="510" y1="255" x2="690" y2="225" />
+    <line x1="600" y1="165" x2="770" y2="155" />
+    <line x1="600" y1="165" x2="690" y2="225" />
+    <line x1="690" y1="225" x2="770" y2="155" />
+    <line x1="690" y1="225" x2="860" y2="230" />
+    <line x1="770" y1="155" x2="950" y2="175" />
+    <line x1="770" y1="155" x2="860" y2="230" />
+    <line x1="860" y1="230" x2="950" y2="175" />
+    <line x1="860" y1="230" x2="1040" y2="240" />
+    <line x1="950" y1="175" x2="1120" y2="190" />
+    <line x1="950" y1="175" x2="1040" y2="240" />
+    <line x1="1040" y1="240" x2="1120" y2="190" />
+    <line x1="1040" y1="240" x2="1200" y2="250" />
+  </g>
+  <g stroke="#0077b6" stroke-width="0.6" stroke-opacity="0.28">
+    <line x1="0" y1="260" x2="80" y2="300" />
+    <line x1="80" y1="300" x2="180" y2="250" />
+    <line x1="180" y1="250" x2="280" y2="320" />
+    <line x1="280" y1="320" x2="340" y2="235" />
+    <line x1="340" y1="235" x2="420" y2="330" />
+    <line x1="420" y1="330" x2="510" y2="255" />
+    <line x1="510" y1="255" x2="620" y2="320" />
+    <line x1="620" y1="320" x2="690" y2="225" />
+    <line x1="690" y1="225" x2="780" y2="315" />
+    <line x1="780" y1="315" x2="860" y2="230" />
+    <line x1="860" y1="230" x2="960" y2="320" />
+    <line x1="960" y1="320" x2="1040" y2="240" />
+    <line x1="1040" y1="240" x2="1140" y2="325" />
+    <line x1="1140" y1="325" x2="1200" y2="250" />
   </g>
 
-  <!-- Nodos luminosos -->
+  <!-- Nodos luminosos (mantenidos) -->
   <g fill="#e0f7ff" filter="url(#glow)">
     <circle cx="90" cy="210" r="3.2" />
     <circle cx="180" cy="250" r="4.2" />
-    <circle cx="270" cy="170" r="5" class="node-pulse" />
+    <circle cx="270" cy="170" r="5" />
     <circle cx="340" cy="235" r="3.8" />
     <circle cx="440" cy="180" r="4.5" />
     <circle cx="510" cy="255" r="4" />
-    <circle cx="600" cy="165" r="5.2" class="node-pulse" />
+    <circle cx="600" cy="165" r="5.2" />
     <circle cx="690" cy="225" r="4.2" />
-    <circle cx="770" cy="155" r="5" class="node-pulse" />
+    <circle cx="770" cy="155" r="5" />
     <circle cx="860" cy="230" r="4.5" />
     <circle cx="950" cy="175" r="4" />
-    <circle cx="1040" cy="240" r="4.8" class="node-pulse" />
+    <circle cx="1040" cy="240" r="4.8" />
     <circle cx="1120" cy="190" r="3.5" />
     <circle cx="80" cy="300" r="2.8" opacity="0.6" />
     <circle cx="280" cy="320" r="3" opacity="0.6" />
@@ -184,8 +138,13 @@
     <circle cx="1140" cy="325" r="2.8" opacity="0.6" />
   </g>
 
-  <!-- NOMBRE PRINCIPAL INTEGRADO ENCIMA DEL FONDO CON MOVIMIENTO -->
-  <text x="50%" y="215" text-anchor="middle" class="animated-title">
+  <!-- NOMBRE PRINCIPAL INTEGRADO CON ESTILOS INLINE (COMPATIBLE CON GITHUB) -->
+  <text 
+    x="50%" 
+    y="215" 
+    text-anchor="middle" 
+    style="font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif; font-weight: 800; font-size: 38px; letter-spacing: 3px; fill: url(#textGrad); drop-shadow(0 0 10px rgba(0, 229, 255, 0.5));"
+  >
     LINO ENRIQUE SÁNCHEZ BERNAL
   </text>
 </svg>
