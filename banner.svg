@@ -1,212 +1,215 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="100%" height="100%">
   <defs>
-    <!-- Fondo Deep Space / Dark Cyan -->
+    <!-- Gradiente de Fondo Ultracian/Deep Blue -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#020813" />
+      <stop offset="0%" stop-color="#020811" />
       <stop offset="50%" stop-color="#07192f" />
-      <stop offset="100%" stop-color="#020813" />
+      <stop offset="100%" stop-color="#020811" />
     </linearGradient>
 
-    <!-- Resplandor neón -->
+    <!-- Resplandor Neón Cian para Texto y Nodos -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur1" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur2" />
       <feMerge>
-        <feMergeNode in="blur" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
         <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
 
-    <!-- Gradiente de texto con animación cromática SMIL -->
-    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38bdf8">
-        <animate attributeName="stop-color" values="#38bdf8;#00e5ff;#0088ff;#38bdf8" dur="6s" repeatCount="indefinite" />
-      </stop>
-      <stop offset="50%" stop-color="#00e5ff">
-        <animate attributeName="stop-color" values="#00e5ff;#ffffff;#00e5ff;#00e5ff" dur="6s" repeatCount="indefinite" />
-      </stop>
-      <stop offset="100%" stop-color="#00b4d8">
-        <animate attributeName="stop-color" values="#00b4d8;#38bdf8;#00e5ff;#00b4d8" dur="6s" repeatCount="indefinite" />
-      </stop>
-    </linearGradient>
-
-    <!-- Gradientes de la malla low-poly -->
+    <!-- Gradientes para la Malla Low-Poly -->
     <linearGradient id="polyGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.22" />
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.25" />
       <stop offset="100%" stop-color="#0055ff" stop-opacity="0.03" />
     </linearGradient>
 
     <linearGradient id="polyGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#00b4d8" stop-opacity="0.28" />
-      <stop offset="100%" stop-color="#023e8a" stop-opacity="0.04" />
+      <stop offset="0%" stop-color="#00b4d8" stop-opacity="0.30" />
+      <stop offset="100%" stop-color="#023e8a" stop-opacity="0.05" />
     </linearGradient>
 
     <linearGradient id="polyGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.18" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.06" />
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.20" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.08" />
     </linearGradient>
   </defs>
 
-  <!-- Lienzo base -->
-  <rect width="1200" height="420" fill="url(#bgGrad)" />
+  <style>
+    /* Estilo de Fuente Orbitron (Cargada desde Google Fonts) */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;display=swap');
 
-  <!-- Luces difusas de fondo con animación pulsante -->
-  <circle cx="280" cy="220" r="140" fill="#00e5ff" filter="url(#glow)">
-    <animate attributeName="opacity" values="0.06;0.14;0.06" dur="4s" repeatCount="indefinite" />
+    /* Texto: Estilo de Nombre Neón Pulsante */
+    .title-text {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 42px;
+      fill: #e0f7ff;
+      letter-spacing: 5px;
+      filter: url(#glow);
+      text-transform: uppercase;
+      animation: pulse 3s infinite ease-in-out;
+    }
+
+    /* Texto: Estilo de Título Neón */
+    .subtitle-text {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      fill: #00e5ff;
+      letter-spacing: 3px;
+      filter: url(#glow);
+      opacity: 0.8;
+      text-transform: uppercase;
+    }
+
+    /* Animación de Pulso Suave */
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.7;
+        filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.45));
+      }
+      50% {
+        opacity: 1;
+        filter: drop-shadow(0 0 25px rgba(0, 229, 255, 0.95)) drop-shadow(0 0 8px #ffffff);
+      }
+    }
+
+    /* Animación de Nodos: Pulso Individual */
+    .node-pulse {
+      animation: node-flicker 2.5s infinite alternate;
+    }
+
+    /* Animación de Nodos: Barrido de Luz Horizontal */
+    @keyframes node-flicker {
+      0% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
+    /* Líneas de Conexión */
+    .edge {
+      stroke: #00e5ff;
+      stroke-width: 0.85;
+      stroke-opacity: 0.45;
+    }
+
+    .edge-dim {
+      stroke: #0077b6;
+      stroke-width: 0.6;
+      stroke-opacity: 0.28;
+    }
+
+  </style>
+
+  <!-- Lienzo Base con Gradiente Ultracian -->
+  <rect width="1200" height="480" fill="url(#bgGrad)" />
+
+  <!-- Luces Difusas de Fondo Animadas -->
+  <circle cx="280" cy="240" r="150" fill="#00e5ff" opacity="0.08" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.04;0.12;0.04" dur="4s" repeatCount="indefinite" />
   </circle>
-  <circle cx="850" cy="210" r="170" fill="#0072ff" filter="url(#glow)">
-    <animate attributeName="opacity" values="0.05;0.12;0.05" dur="5s" repeatCount="indefinite" />
+  <circle cx="850" cy="220" r="180" fill="#0072ff" opacity="0.08" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.03;0.1;0.03" dur="5s" repeatCount="indefinite" />
   </circle>
-  <circle cx="600" cy="210" r="130" fill="#38bdf8" filter="url(#glow)">
-    <animate attributeName="opacity" values="0.07;0.15;0.07" dur="4.5s" repeatCount="indefinite" />
+  <circle cx="600" cy="230" r="140" fill="#38bdf8" opacity="0.10" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.05;0.14;0.05" dur="4.5s" repeatCount="indefinite" />
   </circle>
 
-  <!-- Malla de polígonos triangulados -->
+  <!-- Malla de Polígonos Triangulados (Low-Poly Cyber Mesh) -->
+  <polygon points="0,300 90,250 180,290 80,340" fill="url(#polyGrad1)" />
+  <polygon points="90,250 180,290 270,210" fill="url(#polyGrad2)" />
+  <polygon points="180,290 270,210 340,275" fill="url(#polyGrad3)" />
+  <polygon points="180,290 340,275 280,360" fill="url(#polyGrad1)" />
+  <polygon points="270,210 340,275 440,220" fill="url(#polyGrad2)" />
+  <polygon points="340,275 440,220 510,295" fill="url(#polyGrad3)" />
+  <polygon points="340,275 510,295 420,370" fill="url(#polyGrad1)" />
+  <polygon points="440,220 510,295 600,205" fill="url(#polyGrad2)" />
+  <polygon points="510,295 600,205 690,265" fill="url(#polyGrad3)" />
+  <polygon points="510,295 690,265 620,360" fill="url(#polyGrad1)" />
+  <polygon points="600,205 690,265 770,195" fill="url(#polyGrad2)" />
+  <polygon points="690,265 770,195 860,270" fill="url(#polyGrad3)" />
+  <polygon points="690,265 860,270 780,355" fill="url(#polyGrad1)" />
+  <polygon points="770,195 860,270 950,215" fill="url(#polyGrad2)" />
+  <polygon points="860,270 950,215 1040,280" fill="url(#polyGrad3)" />
+  <polygon points="860,270 1040,280 960,360" fill="url(#polyGrad1)" />
+  <polygon points="950,215 1040,280 1120,230" fill="url(#polyGrad2)" />
+  <polygon points="1040,280 1120,230 1200,290" fill="url(#polyGrad3)" />
+  <polygon points="1040,280 1200,290 1140,365" fill="url(#polyGrad1)" />
+
+  <!-- Red de Aristas y Conexiones -->
   <g>
-    <polygon points="0,260 90,210 180,250 80,300" fill="url(#polyGrad1)" />
-    <polygon points="90,210 180,250 270,170" fill="url(#polyGrad2)" />
-    <polygon points="180,250 270,170 340,235" fill="url(#polyGrad3)" />
-    <polygon points="180,250 340,235 280,320" fill="url(#polyGrad1)" />
-    <polygon points="270,170 340,235 440,180" fill="url(#polyGrad2)" />
-    <polygon points="340,235 440,180 510,255" fill="url(#polyGrad3)" />
-    <polygon points="340,235 510,255 420,330" fill="url(#polyGrad1)" />
-    <polygon points="440,180 510,255 600,165" fill="url(#polyGrad2)" />
-    <polygon points="510,255 600,165 690,225" fill="url(#polyGrad3)" />
-    <polygon points="510,255 690,225 620,320" fill="url(#polyGrad1)" />
-    <polygon points="600,165 690,225 770,155" fill="url(#polyGrad2)" />
-    <polygon points="690,225 770,155 860,230" fill="url(#polyGrad3)" />
-    <polygon points="690,225 860,230 780,315" fill="url(#polyGrad1)" />
-    <polygon points="770,155 860,230 950,175" fill="url(#polyGrad2)" />
-    <polygon points="860,230 950,175 1040,240" fill="url(#polyGrad3)" />
-    <polygon points="860,230 1040,240 960,320" fill="url(#polyGrad1)" />
-    <polygon points="950,175 1040,240 1120,190" fill="url(#polyGrad2)" />
-    <polygon points="1040,240 1120,190 1200,250" fill="url(#polyGrad3)" />
-    <polygon points="1040,240 1200,250 1140,325" fill="url(#polyGrad1)" />
+    <line x1="0" y1="300" x2="90" y2="250" class="edge" />
+    <line x1="90" y1="250" x2="180" y2="290" class="edge" />
+    <line x1="0" y1="300" x2="80" y2="340" class="edge-dim" />
+    <line x1="80" y1="340" x2="180" y2="290" class="edge-dim" />
+    <line x1="90" y1="250" x2="270" y2="210" class="edge" />
+    <line x1="180" y1="290" x2="270" y2="210" class="edge" />
+    <line x1="180" y1="290" x2="340" y2="275" class="edge" />
+    <line x1="180" y1="290" x2="280" y2="360" class="edge-dim" />
+    <line x1="280" y1="360" x2="340" y2="275" class="edge-dim" />
+    <line x1="270" y1="210" x2="440" y2="220" class="edge" />
+    <line x1="270" y1="210" x2="340" y2="275" class="edge" />
+    <line x1="340" y1="275" x2="440" y2="220" class="edge" />
+    <line x1="340" y1="275" x2="510" y2="295" class="edge" />
+    <line x1="340" y1="275" x2="420" y2="370" class="edge-dim" />
+    <line x1="420" y1="370" x2="510" y2="295" class="edge-dim" />
+    <line x1="440" y1="220" x2="600" y2="205" class="edge" />
+    <line x1="440" y1="220" x2="510" y2="295" class="edge" />
+    <line x1="510" y1="295" x2="600" y2="205" class="edge" />
+    <line x1="510" y1="295" x2="690" y2="265" class="edge" />
+    <line x1="510" y1="295" x2="620" y2="360" class="edge-dim" />
+    <line x1="620" y1="360" x2="690" y2="265" class="edge-dim" />
+    <line x1="600" y1="205" x2="770" y2="195" class="edge" />
+    <line x1="600" y1="205" x2="690" y2="265" class="edge" />
+    <line x1="690" y1="265" x2="770" y2="195" class="edge" />
+    <line x1="690" y1="265" x2="860" y2="270" class="edge" />
+    <line x1="690" y1="265" x2="780" y2="355" class="edge-dim" />
+    <line x1="780" y1="355" x2="860" y2="270" class="edge-dim" />
+    <line x1="770" y1="195" x2="950" y2="215" class="edge" />
+    <line x1="770" y1="195" x2="860" y2="270" class="edge" />
+    <line x1="860" y1="270" x2="950" y2="215" class="edge" />
+    <line x1="860" y1="270" x2="1040" y2="280" class="edge" />
+    <line x1="860" y1="270" x2="960" y2="360" class="edge-dim" />
+    <line x1="960" y1="360" x2="1040" y2="280" class="edge-dim" />
+    <line x1="950" y1="215" x2="1120" y2="230" class="edge" />
+    <line x1="950" y1="215" x2="1040" y2="280" class="edge" />
+    <line x1="1040" y1="280" x2="1120" y2="230" class="edge" />
+    <line x1="1040" y1="280" x2="1200" y2="290" class="edge" />
+    <line x1="1040" y1="280" x2="1140" y2="365" class="edge-dim" />
+    <line x1="1140" y1="365" x2="1200" y2="290" class="edge-dim" />
   </g>
 
-  <!-- Red de líneas con parpadeo de actividad de datos -->
-  <g stroke="#00e5ff" stroke-width="0.85">
-    <animate attributeName="stroke-opacity" values="0.35;0.65;0.35" dur="3s" repeatCount="indefinite" />
-    <line x1="0" y1="260" x2="90" y2="210" />
-    <line x1="90" y1="210" x2="180" y2="250" />
-    <line x1="90" y1="210" x2="270" y2="170" />
-    <line x1="180" y1="250" x2="270" y2="170" />
-    <line x1="180" y1="250" x2="340" y2="235" />
-    <line x1="270" y1="170" x2="440" y2="180" />
-    <line x1="270" y1="170" x2="340" y2="235" />
-    <line x1="340" y1="235" x2="440" y2="180" />
-    <line x1="340" y1="235" x2="510" y2="255" />
-    <line x1="440" y1="180" x2="600" y2="165" />
-    <line x1="440" y1="180" x2="510" y2="255" />
-    <line x1="510" y1="255" x2="600" y2="165" />
-    <line x1="510" y1="255" x2="690" y2="225" />
-    <line x1="600" y1="165" x2="770" y2="155" />
-    <line x1="600" y1="165" x2="690" y2="225" />
-    <line x1="690" y1="225" x2="770" y2="155" />
-    <line x1="690" y1="225" x2="860" y2="230" />
-    <line x1="770" y1="155" x2="950" y2="175" />
-    <line x1="770" y1="155" x2="860" y2="230" />
-    <line x1="860" y1="230" x2="950" y2="175" />
-    <line x1="860" y1="230" x2="1040" y2="240" />
-    <line x1="950" y1="175" x2="1120" y2="190" />
-    <line x1="950" y1="175" x2="1040" y2="240" />
-    <line x1="1040" y1="240" x2="1120" y2="190" />
-    <line x1="1040" y1="240" x2="1200" y2="250" />
-  </g>
-
-  <!-- Líneas secundarias de profundidad -->
-  <g stroke="#0077b6" stroke-width="0.6" stroke-opacity="0.25">
-    <line x1="0" y1="260" x2="80" y2="300" />
-    <line x1="80" y1="300" x2="180" y2="250" />
-    <line x1="180" y1="250" x2="280" y2="320" />
-    <line x1="280" y1="320" x2="340" y2="235" />
-    <line x1="340" y1="235" x2="420" y2="330" />
-    <line x1="420" y1="330" x2="510" y2="255" />
-    <line x1="510" y1="255" x2="620" y2="320" />
-    <line x1="620" y1="320" x2="690" y2="225" />
-    <line x1="690" y1="225" x2="780" y2="315" />
-    <line x1="780" y1="315" x2="860" y2="230" />
-    <line x1="860" y1="230" x2="960" y2="320" />
-    <line x1="960" y1="320" x2="1040" y2="240" />
-    <line x1="1040" y1="240" x2="1140" y2="325" />
-    <line x1="1140" y1="325" x2="1200" y2="250" />
-  </g>
-
-  <!-- Nodos estáticos y pulsantes -->
+  <!-- Nodos Luminosos Animados -->
   <g fill="#e0f7ff" filter="url(#glow)">
-    <circle cx="90" cy="210" r="3.2" />
-    <circle cx="180" cy="250" r="4.2" />
-    <circle cx="340" cy="235" r="3.8" />
-    <circle cx="440" cy="180" r="4.5" />
-    <circle cx="510" cy="255" r="4" />
-    <circle cx="690" cy="225" r="4.2" />
-    <circle cx="860" cy="230" r="4.5" />
-    <circle cx="950" cy="175" r="4" />
-    <circle cx="1120" cy="190" r="3.5" />
-    <circle cx="80" cy="300" r="2.5" opacity="0.5" />
-    <circle cx="280" cy="320" r="2.8" opacity="0.5" />
-    <circle cx="420" cy="330" r="2.8" opacity="0.5" />
-    <circle cx="620" cy="320" r="3" opacity="0.5" />
-    <circle cx="780" cy="315" r="2.8" opacity="0.5" />
-    <circle cx="960" cy="320" r="3" opacity="0.5" />
-    <circle cx="1140" cy="325" r="2.6" opacity="0.5" />
-
-    <!-- Nodos principales con animación de pulso SMIL -->
-    <circle cx="270" cy="170" r="5" fill="#00e5ff">
-      <animate attributeName="r" values="4;6.5;4" dur="2.5s" repeatCount="indefinite" />
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="600" cy="165" r="5.2" fill="#38bdf8">
-      <animate attributeName="r" values="4.5;7;4.5" dur="3s" repeatCount="indefinite" />
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="770" cy="155" r="5" fill="#00e5ff">
-      <animate attributeName="r" values="4;6.5;4" dur="2.8s" repeatCount="indefinite" />
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="1040" cy="240" r="4.8" fill="#38bdf8">
-      <animate attributeName="r" values="3.8;6;3.8" dur="3.2s" repeatCount="indefinite" />
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite" />
-    </circle>
+    <circle cx="90" cy="250" r="3.2" class="node-pulse" />
+    <circle cx="180" cy="290" r="4.2" class="node-pulse" dur="2.8s" />
+    <circle cx="270" cy="210" r="5" class="node-pulse" dur="2.2s" />
+    <circle cx="340" cy="275" r="3.8" class="node-pulse" />
+    <circle cx="440" cy="220" r="4.5" class="node-pulse" dur="2.6s" />
+    <circle cx="510" cy="295" r="4" class="node-pulse" dur="2.9s" />
+    <circle cx="600" cy="205" r="5.2" class="node-pulse" dur="2.1s" />
+    <circle cx="690" cy="265" r="4.2" class="node-pulse" />
+    <circle cx="770" cy="195" r="5" class="node-pulse" dur="2.3s" />
+    <circle cx="860" cy="270" r="4.5" class="node-pulse" dur="2.7s" />
+    <circle cx="950" cy="215" r="4" class="node-pulse" dur="2.9s" />
+    <circle cx="1040" cy="280" r="4.8" class="node-pulse" />
+    <circle cx="1120" cy="230" r="3.5" class="node-pulse" />
+    <circle cx="80" cy="340" r="2.8" opacity="0.6" class="node-pulse" dur="3.1s" />
+    <circle cx="280" cy="360" r="3" opacity="0.6" class="node-pulse" />
+    <circle cx="420" cy="370" r="3" opacity="0.6" class="node-pulse" dur="3s" />
+    <circle cx="620" cy="360" r="3.2" opacity="0.6" class="node-pulse" />
+    <circle cx="780" cy="355" r="3" opacity="0.6" class="node-pulse" dur="3.2s" />
+    <circle cx="960" cy="360" r="3.2" opacity="0.6" class="node-pulse" />
+    <circle cx="1140" cy="365" r="2.8" opacity="0.6" class="node-pulse" />
   </g>
 
-  <!-- GRUPO DEL TÍTULO: MOVIMIENTO VERTICAL FLOTANTE (SMIL) -->
-  <g>
-    <animateTransform 
-      attributeName="transform" 
-      type="translate" 
-      values="0 0; 0 -6; 0 0" 
-      dur="3.5s" 
-      repeatCount="indefinite" 
-    />
-    
-    <!-- Sombra neón posterior -->
-    <text 
-      x="50%" 
-      y="215" 
-      text-anchor="middle" 
-      font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" 
-      font-weight="900" 
-      font-size="38" 
-      letter-spacing="4" 
-      fill="#00e5ff" 
-      opacity="0.65"
-      filter="url(#glow)"
-    >
-      LINO ENRIQUE SÁNCHEZ BERNAL
-    </text>
-
-    <!-- Texto frontal con gradiente animado -->
-    <text 
-      x="50%" 
-      y="215" 
-      text-anchor="middle" 
-      font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" 
-      font-weight="900" 
-      font-size="38" 
-      letter-spacing="4" 
-      fill="url(#textGrad)"
-    >
-      LINO ENRIQUE SÁNCHEZ BERNAL
-    </text>
-  </g>
+  <!-- TEXTO DEL BANNER: NOMBRE PRINCIPAL -->
+  <text x="50%" y="105" text-anchor="middle" class="title-text">
+    Lino Enrique Sánchez Bernal
+  </text>
+  
+  <!-- TEXTO DEL BANNER: TÍTULO PROFESIONAL -->
+  <text x="50%" y="150" text-anchor="middle" class="subtitle-text">
+    Full Stack Software Engineer
+  </text>
 </svg>
