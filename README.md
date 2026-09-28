@@ -68,7 +68,7 @@
         <div>
           <img src="https://img.shields.io/badge/STATUS-READY_TO_DEPLOY-00e5ff?style=for-the-badge&logoColor=040D1A&color=040D1A&labelColor=00e5ff" />
           <img src="https://img.shields.io/badge/CODE_STYLE-CLEAN_SOLID-007ACC?style=for-the-badge&logoColor=white&color=040D1A&labelColor=007ACC" />
-          <img src="https://img.shields.io/badge/LOCATION-MEXICO_%F0%9F%87%B2%F0%9F%87%BD-38bdf8?style=for-the-badge&logoColor=white&color=040D1A&labelColor=082f49" />
+          <img src="https://img.shields.io/badge/LOCATION-COLOMBIA_%F0%9F%87%B2%F0%9F%87%BD-38bdf8?style=for-the-badge&logoColor=white&color=040D1A&labelColor=082f49" />
         </div>
       </div>
     </td>
