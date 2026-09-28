@@ -1,215 +1,710 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1200 480"
+     width="1200"
+     height="480">
+
   <defs>
-    <!-- Gradiente de Fondo Ultracian/Deep Blue -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#020811" />
-      <stop offset="50%" stop-color="#07192f" />
-      <stop offset="100%" stop-color="#020811" />
+
+    <!-- =========================================================
+         BACKGROUND
+    ========================================================== -->
+
+    <linearGradient id="background"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%">
+
+      <stop offset="0%" stop-color="#010611"/>
+      <stop offset="45%" stop-color="#06152b"/>
+      <stop offset="100%" stop-color="#020714"/>
+
     </linearGradient>
 
-    <!-- Resplandor Neón Cian para Texto y Nodos -->
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur1" />
-      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur2" />
+
+    <!-- =========================================================
+         MOLECULE GRADIENT
+    ========================================================== -->
+
+    <radialGradient id="nodeGradient">
+
+      <stop offset="0%"
+            stop-color="#ffffff"/>
+
+      <stop offset="35%"
+            stop-color="#67e8f9"/>
+
+      <stop offset="100%"
+            stop-color="#00bfff"
+            stop-opacity="0"/>
+
+    </radialGradient>
+
+
+    <!-- =========================================================
+         GLOW
+    ========================================================== -->
+
+    <filter id="softGlow"
+            x="-100%"
+            y="-100%"
+            width="300%"
+            height="300%">
+
+      <feGaussianBlur
+          stdDeviation="5"
+          result="blur"/>
+
       <feMerge>
-        <feMergeNode in="blur2" />
-        <feMergeNode in="blur1" />
-        <feMergeNode in="SourceGraphic" />
+
+        <feMergeNode in="blur"/>
+
+        <feMergeNode in="SourceGraphic"/>
+
       </feMerge>
+
     </filter>
 
-    <!-- Gradientes para la Malla Low-Poly -->
-    <linearGradient id="polyGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.25" />
-      <stop offset="100%" stop-color="#0055ff" stop-opacity="0.03" />
+
+    <filter id="strongGlow"
+            x="-150%"
+            y="-150%"
+            width="400%"
+            height="400%">
+
+      <feGaussianBlur
+          stdDeviation="12"
+          result="blur"/>
+
+      <feMerge>
+
+        <feMergeNode in="blur"/>
+
+        <feMergeNode in="SourceGraphic"/>
+
+      </feMerge>
+
+    </filter>
+
+
+    <!-- =========================================================
+         MOLECULE CONNECTION
+    ========================================================== -->
+
+    <linearGradient id="connection"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%">
+
+      <stop offset="0%"
+            stop-color="#00e5ff"
+            stop-opacity="0"/>
+
+      <stop offset="50%"
+            stop-color="#00e5ff"
+            stop-opacity="0.7"/>
+
+      <stop offset="100%"
+            stop-color="#38bdf8"
+            stop-opacity="0"/>
+
     </linearGradient>
 
-    <linearGradient id="polyGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#00b4d8" stop-opacity="0.30" />
-      <stop offset="100%" stop-color="#023e8a" stop-opacity="0.05" />
-    </linearGradient>
 
-    <linearGradient id="polyGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.20" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.08" />
-    </linearGradient>
+    <!-- =========================================================
+         CENTRAL SHINE
+    ========================================================== -->
+
+    <radialGradient id="centerGlow">
+
+      <stop offset="0%"
+            stop-color="#00e5ff"
+            stop-opacity="0.20"/>
+
+      <stop offset="50%"
+            stop-color="#0077ff"
+            stop-opacity="0.08"/>
+
+      <stop offset="100%"
+            stop-color="#001020"
+            stop-opacity="0"/>
+
+    </radialGradient>
+
   </defs>
 
-  <style>
-    /* Estilo de Fuente Orbitron (Cargada desde Google Fonts) */
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;display=swap');
 
-    /* Texto: Estilo de Nombre Neón Pulsante */
-    .title-text {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 900;
-      font-size: 42px;
-      fill: #e0f7ff;
-      letter-spacing: 5px;
-      filter: url(#glow);
-      text-transform: uppercase;
-      animation: pulse 3s infinite ease-in-out;
-    }
+  <!-- =========================================================
+       BACKGROUND
+  ========================================================== -->
 
-    /* Texto: Estilo de Título Neón */
-    .subtitle-text {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 700;
-      font-size: 26px;
-      fill: #00e5ff;
-      letter-spacing: 3px;
-      filter: url(#glow);
-      opacity: 0.8;
-      text-transform: uppercase;
-    }
+  <rect
+      width="1200"
+      height="480"
+      fill="url(#background)"/>
 
-    /* Animación de Pulso Suave */
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 0.7;
-        filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.45));
-      }
-      50% {
-        opacity: 1;
-        filter: drop-shadow(0 0 25px rgba(0, 229, 255, 0.95)) drop-shadow(0 0 8px #ffffff);
-      }
-    }
 
-    /* Animación de Nodos: Pulso Individual */
-    .node-pulse {
-      animation: node-flicker 2.5s infinite alternate;
-    }
+  <!-- CENTRAL ATMOSPHERIC GLOW -->
 
-    /* Animación de Nodos: Barrido de Luz Horizontal */
-    @keyframes node-flicker {
-      0% { opacity: 0.4; }
-      100% { opacity: 1; }
-    }
+  <circle
+      cx="600"
+      cy="250"
+      r="260"
+      fill="url(#centerGlow)">
 
-    /* Líneas de Conexión */
-    .edge {
-      stroke: #00e5ff;
-      stroke-width: 0.85;
-      stroke-opacity: 0.45;
-    }
+    <animate
+        attributeName="r"
+        values="230;280;230"
+        dur="7s"
+        repeatCount="indefinite"/>
 
-    .edge-dim {
-      stroke: #0077b6;
-      stroke-width: 0.6;
-      stroke-opacity: 0.28;
-    }
+    <animate
+        attributeName="opacity"
+        values="0.5;1;0.5"
+        dur="6s"
+        repeatCount="indefinite"/>
 
-  </style>
-
-  <!-- Lienzo Base con Gradiente Ultracian -->
-  <rect width="1200" height="480" fill="url(#bgGrad)" />
-
-  <!-- Luces Difusas de Fondo Animadas -->
-  <circle cx="280" cy="240" r="150" fill="#00e5ff" opacity="0.08" filter="url(#glow)">
-    <animate attributeName="opacity" values="0.04;0.12;0.04" dur="4s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="850" cy="220" r="180" fill="#0072ff" opacity="0.08" filter="url(#glow)">
-    <animate attributeName="opacity" values="0.03;0.1;0.03" dur="5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="600" cy="230" r="140" fill="#38bdf8" opacity="0.10" filter="url(#glow)">
-    <animate attributeName="opacity" values="0.05;0.14;0.05" dur="4.5s" repeatCount="indefinite" />
   </circle>
 
-  <!-- Malla de Polígonos Triangulados (Low-Poly Cyber Mesh) -->
-  <polygon points="0,300 90,250 180,290 80,340" fill="url(#polyGrad1)" />
-  <polygon points="90,250 180,290 270,210" fill="url(#polyGrad2)" />
-  <polygon points="180,290 270,210 340,275" fill="url(#polyGrad3)" />
-  <polygon points="180,290 340,275 280,360" fill="url(#polyGrad1)" />
-  <polygon points="270,210 340,275 440,220" fill="url(#polyGrad2)" />
-  <polygon points="340,275 440,220 510,295" fill="url(#polyGrad3)" />
-  <polygon points="340,275 510,295 420,370" fill="url(#polyGrad1)" />
-  <polygon points="440,220 510,295 600,205" fill="url(#polyGrad2)" />
-  <polygon points="510,295 600,205 690,265" fill="url(#polyGrad3)" />
-  <polygon points="510,295 690,265 620,360" fill="url(#polyGrad1)" />
-  <polygon points="600,205 690,265 770,195" fill="url(#polyGrad2)" />
-  <polygon points="690,265 770,195 860,270" fill="url(#polyGrad3)" />
-  <polygon points="690,265 860,270 780,355" fill="url(#polyGrad1)" />
-  <polygon points="770,195 860,270 950,215" fill="url(#polyGrad2)" />
-  <polygon points="860,270 950,215 1040,280" fill="url(#polyGrad3)" />
-  <polygon points="860,270 1040,280 960,360" fill="url(#polyGrad1)" />
-  <polygon points="950,215 1040,280 1120,230" fill="url(#polyGrad2)" />
-  <polygon points="1040,280 1120,230 1200,290" fill="url(#polyGrad3)" />
-  <polygon points="1040,280 1200,290 1140,365" fill="url(#polyGrad1)" />
 
-  <!-- Red de Aristas y Conexiones -->
-  <g>
-    <line x1="0" y1="300" x2="90" y2="250" class="edge" />
-    <line x1="90" y1="250" x2="180" y2="290" class="edge" />
-    <line x1="0" y1="300" x2="80" y2="340" class="edge-dim" />
-    <line x1="80" y1="340" x2="180" y2="290" class="edge-dim" />
-    <line x1="90" y1="250" x2="270" y2="210" class="edge" />
-    <line x1="180" y1="290" x2="270" y2="210" class="edge" />
-    <line x1="180" y1="290" x2="340" y2="275" class="edge" />
-    <line x1="180" y1="290" x2="280" y2="360" class="edge-dim" />
-    <line x1="280" y1="360" x2="340" y2="275" class="edge-dim" />
-    <line x1="270" y1="210" x2="440" y2="220" class="edge" />
-    <line x1="270" y1="210" x2="340" y2="275" class="edge" />
-    <line x1="340" y1="275" x2="440" y2="220" class="edge" />
-    <line x1="340" y1="275" x2="510" y2="295" class="edge" />
-    <line x1="340" y1="275" x2="420" y2="370" class="edge-dim" />
-    <line x1="420" y1="370" x2="510" y2="295" class="edge-dim" />
-    <line x1="440" y1="220" x2="600" y2="205" class="edge" />
-    <line x1="440" y1="220" x2="510" y2="295" class="edge" />
-    <line x1="510" y1="295" x2="600" y2="205" class="edge" />
-    <line x1="510" y1="295" x2="690" y2="265" class="edge" />
-    <line x1="510" y1="295" x2="620" y2="360" class="edge-dim" />
-    <line x1="620" y1="360" x2="690" y2="265" class="edge-dim" />
-    <line x1="600" y1="205" x2="770" y2="195" class="edge" />
-    <line x1="600" y1="205" x2="690" y2="265" class="edge" />
-    <line x1="690" y1="265" x2="770" y2="195" class="edge" />
-    <line x1="690" y1="265" x2="860" y2="270" class="edge" />
-    <line x1="690" y1="265" x2="780" y2="355" class="edge-dim" />
-    <line x1="780" y1="355" x2="860" y2="270" class="edge-dim" />
-    <line x1="770" y1="195" x2="950" y2="215" class="edge" />
-    <line x1="770" y1="195" x2="860" y2="270" class="edge" />
-    <line x1="860" y1="270" x2="950" y2="215" class="edge" />
-    <line x1="860" y1="270" x2="1040" y2="280" class="edge" />
-    <line x1="860" y1="270" x2="960" y2="360" class="edge-dim" />
-    <line x1="960" y1="360" x2="1040" y2="280" class="edge-dim" />
-    <line x1="950" y1="215" x2="1120" y2="230" class="edge" />
-    <line x1="950" y1="215" x2="1040" y2="280" class="edge" />
-    <line x1="1040" y1="280" x2="1120" y2="230" class="edge" />
-    <line x1="1040" y1="280" x2="1200" y2="290" class="edge" />
-    <line x1="1040" y1="280" x2="1140" y2="365" class="edge-dim" />
-    <line x1="1140" y1="365" x2="1200" y2="290" class="edge-dim" />
+  <!-- =========================================================
+       MOLECULAR NETWORK
+  ========================================================== -->
+
+  <g fill="none"
+     stroke="url(#connection)"
+     stroke-width="1.2">
+
+
+    <!-- LEFT NETWORK -->
+
+    <line x1="70" y1="110" x2="180" y2="180">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.15;0.7;0.15"
+          dur="4s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="180" y1="180" x2="120" y2="310">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.7;0.15;0.7"
+          dur="5s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="180" y1="180" x2="310" y2="130">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.2;0.65;0.2"
+          dur="3.8s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="310" y1="130" x2="350" y2="260">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.6;0.1;0.6"
+          dur="4.5s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="120" y1="310" x2="260" y2="370">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.15;0.6;0.15"
+          dur="4.2s"
+          repeatCount="indefinite"/>
+    </line>
+
+
+    <!-- CENTER NETWORK -->
+
+    <line x1="310" y1="130" x2="500" y2="190">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.15;0.8;0.15"
+          dur="4s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="350" y1="260" x2="500" y2="190">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.7;0.1;0.7"
+          dur="5s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="350" y1="260" x2="520" y2="330">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.15;0.65;0.15"
+          dur="4.5s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="500" y1="190" x2="650" y2="250">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.6;0.1;0.6"
+          dur="3.5s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="520" y1="330" x2="650" y2="250">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.1;0.7;0.1"
+          dur="4.8s"
+          repeatCount="indefinite"/>
+    </line>
+
+
+    <!-- RIGHT NETWORK -->
+
+    <line x1="650" y1="250" x2="800" y2="150">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.2;0.7;0.2"
+          dur="4s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="650" y1="250" x2="820" y2="330">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.7;0.1;0.7"
+          dur="5s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="800" y1="150" x2="950" y2="100">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.1;0.6;0.1"
+          dur="4.2s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="800" y1="150" x2="900" y2="250">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.6;0.1;0.6"
+          dur="3.8s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="820" y1="330" x2="980" y2="350">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.15;0.65;0.15"
+          dur="4.6s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="900" y1="250" x2="1050" y2="200">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.7;0.1;0.7"
+          dur="5s"
+          repeatCount="indefinite"/>
+    </line>
+
+    <line x1="980" y1="350" x2="1120" y2="300">
+      <animate
+          attributeName="stroke-opacity"
+          values="0.1;0.7;0.1"
+          dur="4s"
+          repeatCount="indefinite"/>
+    </line>
+
   </g>
 
-  <!-- Nodos Luminosos Animados -->
-  <g fill="#e0f7ff" filter="url(#glow)">
-    <circle cx="90" cy="250" r="3.2" class="node-pulse" />
-    <circle cx="180" cy="290" r="4.2" class="node-pulse" dur="2.8s" />
-    <circle cx="270" cy="210" r="5" class="node-pulse" dur="2.2s" />
-    <circle cx="340" cy="275" r="3.8" class="node-pulse" />
-    <circle cx="440" cy="220" r="4.5" class="node-pulse" dur="2.6s" />
-    <circle cx="510" cy="295" r="4" class="node-pulse" dur="2.9s" />
-    <circle cx="600" cy="205" r="5.2" class="node-pulse" dur="2.1s" />
-    <circle cx="690" cy="265" r="4.2" class="node-pulse" />
-    <circle cx="770" cy="195" r="5" class="node-pulse" dur="2.3s" />
-    <circle cx="860" cy="270" r="4.5" class="node-pulse" dur="2.7s" />
-    <circle cx="950" cy="215" r="4" class="node-pulse" dur="2.9s" />
-    <circle cx="1040" cy="280" r="4.8" class="node-pulse" />
-    <circle cx="1120" cy="230" r="3.5" class="node-pulse" />
-    <circle cx="80" cy="340" r="2.8" opacity="0.6" class="node-pulse" dur="3.1s" />
-    <circle cx="280" cy="360" r="3" opacity="0.6" class="node-pulse" />
-    <circle cx="420" cy="370" r="3" opacity="0.6" class="node-pulse" dur="3s" />
-    <circle cx="620" cy="360" r="3.2" opacity="0.6" class="node-pulse" />
-    <circle cx="780" cy="355" r="3" opacity="0.6" class="node-pulse" dur="3.2s" />
-    <circle cx="960" cy="360" r="3.2" opacity="0.6" class="node-pulse" />
-    <circle cx="1140" cy="365" r="2.8" opacity="0.6" class="node-pulse" />
+
+  <!-- =========================================================
+       ENERGY PARTICLES
+  ========================================================== -->
+
+  <g fill="#67e8f9"
+     filter="url(#softGlow)">
+
+
+    <!-- PARTICLE 1 -->
+
+    <circle r="3">
+
+      <animateMotion
+          dur="4s"
+          repeatCount="indefinite"
+          path="M70 110 L180 180 L310 130 L500 190 L650 250"/>
+
+    </circle>
+
+
+    <!-- PARTICLE 2 -->
+
+    <circle r="2.5">
+
+      <animateMotion
+          dur="5s"
+          begin="1s"
+          repeatCount="indefinite"
+          path="M120 310 L260 370 L350 260 L520 330 L650 250"/>
+
+    </circle>
+
+
+    <!-- PARTICLE 3 -->
+
+    <circle r="3">
+
+      <animateMotion
+          dur="5.5s"
+          begin="2s"
+          repeatCount="indefinite"
+          path="M650 250 L800 150 L950 100 L900 250 L1050 200"/>
+
+    </circle>
+
+
+    <!-- PARTICLE 4 -->
+
+    <circle r="2">
+
+      <animateMotion
+          dur="6s"
+          begin="0.5s"
+          repeatCount="indefinite"
+          path="M650 250 L820 330 L980 350 L1120 300"/>
+
+    </circle>
+
   </g>
 
-  <!-- TEXTO DEL BANNER: NOMBRE PRINCIPAL -->
-  <text x="50%" y="105" text-anchor="middle" class="title-text">
-    Lino Enrique Sánchez Bernal
+
+  <!-- =========================================================
+       MOLECULAR NODES
+  ========================================================== -->
+
+  <g fill="url(#nodeGradient)"
+     filter="url(#strongGlow)">
+
+
+    <!-- LEFT -->
+
+    <circle cx="70" cy="110" r="8">
+
+      <animate
+          attributeName="r"
+          values="6;10;6"
+          dur="3s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+    <circle cx="180" cy="180" r="10">
+
+      <animate
+          attributeName="r"
+          values="8;13;8"
+          dur="4s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+    <circle cx="120" cy="310" r="7">
+
+      <animate
+          attributeName="r"
+          values="5;9;5"
+          dur="3.5s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+    <circle cx="310" cy="130" r="9">
+
+      <animate
+          attributeName="r"
+          values="7;12;7"
+          dur="4.2s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+    <circle cx="350" cy="260" r="8">
+
+      <animate
+          attributeName="r"
+          values="6;11;6"
+          dur="3.8s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+
+    <!-- CENTER -->
+
+    <circle cx="500" cy="190" r="11">
+
+      <animate
+          attributeName="r"
+          values="8;14;8"
+          dur="3.5s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+    <circle cx="520" cy="330" r="8">
+
+      <animate
+          attributeName="r"
+          values="6;11;6"
+          dur="4.5s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+    <circle cx="650" cy="250" r="14">
+
+      <animate
+          attributeName="r"
+          values="10;18;10"
+          dur="4s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+
+    <!-- RIGHT -->
+
+    <circle cx="800" cy="150" r="9">
+
+      <animate
+          attributeName="r"
+          values="7;12;7"
+          dur="3.7s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+    <circle cx="820" cy="330" r="8">
+
+      <animate
+          attributeName="r"
+          values="6;11;6"
+          dur="4.2s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+    <circle cx="950" cy="100" r="7">
+
+      <animate
+          attributeName="r"
+          values="5;9;5"
+          dur="3.2s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+    <circle cx="900" cy="250" r="9">
+
+      <animate
+          attributeName="r"
+          values="6;12;6"
+          dur="4.7s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+    <circle cx="980" cy="350" r="8">
+
+      <animate
+          attributeName="r"
+          values="6;10;6"
+          dur="3.9s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+    <circle cx="1050" cy="200" r="7">
+
+      <animate
+          attributeName="r"
+          values="5;9;5"
+          dur="4.3s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+    <circle cx="1120" cy="300" r="6">
+
+      <animate
+          attributeName="r"
+          values="4;8;4"
+          dur="3.6s"
+          repeatCount="indefinite"/>
+
+    </circle>
+
+  </g>
+
+
+  <!-- =========================================================
+       SMALL FLOATING PARTICLES
+  ========================================================== -->
+
+  <g fill="#38bdf8"
+     opacity="0.6">
+
+    <circle cx="40" cy="420" r="2">
+      <animateTransform
+          attributeName="transform"
+          type="translate"
+          values="0 0; 40 -25; 0 0"
+          dur="8s"
+          repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="250" cy="80" r="2">
+      <animateTransform
+          attributeName="transform"
+          type="translate"
+          values="0 0; -25 30; 0 0"
+          dur="7s"
+          repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="720" cy="80" r="2">
+      <animateTransform
+          attributeName="transform"
+          type="translate"
+          values="0 0; 35 25; 0 0"
+          dur="9s"
+          repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="1160" cy="100" r="2">
+      <animateTransform
+          attributeName="transform"
+          type="translate"
+          values="0 0; -30 40; 0 0"
+          dur="8s"
+          repeatCount="indefinite"/>
+    </circle>
+
+  </g>
+
+
+  <!-- =========================================================
+       CENTRAL TEXT BACKDROP
+  ========================================================== -->
+
+  <rect
+      x="230"
+      y="145"
+      width="740"
+      height="135"
+      rx="25"
+      fill="#020b18"
+      fill-opacity="0.62"/>
+
+
+  <rect
+      x="230"
+      y="145"
+      width="740"
+      height="135"
+      rx="25"
+      fill="none"
+      stroke="#00e5ff"
+      stroke-opacity="0.15">
+
+    <animate
+        attributeName="stroke-opacity"
+        values="0.08;0.35;0.08"
+        dur="4s"
+        repeatCount="indefinite"/>
+
+  </rect>
+
+
+  <!-- =========================================================
+       NAME
+  ========================================================== -->
+
+  <text
+      x="600"
+      y="205"
+      text-anchor="middle"
+      fill="#e6fbff"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="38"
+      font-weight="700"
+      letter-spacing="4">
+
+    LINO ENRIQUE SÁNCHEZ BERNAL
+
+    <animate
+        attributeName="opacity"
+        values="0.75;1;0.75"
+        dur="4s"
+        repeatCount="indefinite"/>
+
   </text>
-  
-  <!-- TEXTO DEL BANNER: TÍTULO PROFESIONAL -->
-  <text x="50%" y="150" text-anchor="middle" class="subtitle-text">
-    Full Stack Software Engineer
+
+
+  <!-- =========================================================
+       PROFESSIONAL TITLE
+  ========================================================== -->
+
+  <text
+      x="600"
+      y="245"
+      text-anchor="middle"
+      fill="#00e5ff"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="22"
+      font-weight="600"
+      letter-spacing="5">
+
+    FULL STACK SOFTWARE ENGINEER
+
+    <animate
+        attributeName="opacity"
+        values="0.45;1;0.45"
+        dur="3s"
+        repeatCount="indefinite"/>
+
   </text>
+
+
+  <!-- =========================================================
+       BOTTOM STATUS
+  ========================================================== -->
+
+  <text
+      x="600"
+      y="410"
+      text-anchor="middle"
+      fill="#38bdf8"
+      opacity="0.55"
+      font-family="monospace"
+      font-size="12"
+      letter-spacing="3">
+
+    &lt; BUILD • CREATE • INNOVATE /&gt;
+
+    <animate
+        attributeName="opacity"
+        values="0.25;0.7;0.25"
+        dur="5s"
+        repeatCount="indefinite"/>
+
+  </text>
+
 </svg>
