@@ -1,12 +1,9 @@
 <div align="center">
 
-  <!-- BANNER VECTORIAL (Ruta en la raíz) -->
-  <img src="./banner.svg" width="100%" alt="Cyber Mesh Header" />
+  <!-- BANNER CON FONDO Y NOMBRE EN MOVIMIENTO -->
+  <img src="./banner.svg" width="100%" alt="Lino Enrique Sánchez Bernal" />
 
   <br/><br/>
-
-  <!-- TÍTULO PRINCIPAL NEÓN CIAN -->
-  <img src="https://capsule-render.vercel.app/api?type=transparent&fontColor=00E5FF&text=LINO%20ENRIQUE%20S%C3%81NCHEZ%20BERNAL&fontSize=36&height=85&stroke=007ACC&strokeWidth=1" width="100%" alt="Lino Sanchez" />
 
   <!-- EFECTO MÁQUINA DE ESCRIBIR DINÁMICA -->
   <a href="https://github.com/xbernxxl">
