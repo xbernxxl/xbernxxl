@@ -1,7 +1,7 @@
 <div align="center">
 
-  <!-- BANNER VECTORIAL / MESH NETWORK -->
-  <img src="./assets/banner.svg" width="100%" alt="Cyber Mesh Header" />
+  <!-- BANNER VECTORIAL (Ruta en la raíz) -->
+  <img src="./banner.svg" width="100%" alt="Cyber Mesh Header" />
 
   <br/><br/>
 
