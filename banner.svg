@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+  <defs>
+    <!-- Gradiente de fondo ultra dark -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#040d1a" />
+      <stop offset="50%" stop-color="#08182b" />
+      <stop offset="100%" stop-color="#030811" />
+    </linearGradient>
+
+    <!-- Resplandor cian para puntos y nodos -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Resplandor suave para áreas poligonales -->
+    <linearGradient id="polyGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#0055ff" stop-opacity="0.03" />
+    </linearGradient>
+
+    <linearGradient id="polyGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00b4d8" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#023e8a" stop-opacity="0.05" />
+    </linearGradient>
+
+    <linearGradient id="polyGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.08" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    .node-pulse {
+      animation: pulse 3s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+    .edge {
+      stroke: #00e5ff;
+      stroke-width: 0.85;
+      stroke-opacity: 0.45;
+    }
+    .edge-dim {
+      stroke: #0077b6;
+      stroke-width: 0.6;
+      stroke-opacity: 0.3;
+    }
+  </style>
+
+  <!-- Lienzo base -->
+  <rect width="1200" height="400" fill="url(#bgGrad)" />
+
+  <!-- Luces difusas de fondo -->
+  <circle cx="280" cy="240" r="140" fill="#00e5ff" opacity="0.08" filter="url(#glow)" />
+  <circle cx="820" cy="220" r="170" fill="#0072ff" opacity="0.07" filter="url(#glow)" />
+  <circle cx="560" cy="210" r="110" fill="#38bdf8" opacity="0.09" filter="url(#glow)" />
+
+  <!-- Malla de polígonos triangulados (Efecto Wireframe / Low-Poly) -->
+  <polygon points="0,270 90,220 180,260 80,310" fill="url(#polyGrad1)" />
+  <polygon points="90,220 180,260 270,180" fill="url(#polyGrad2)" />
+  <polygon points="180,260 270,180 340,245" fill="url(#polyGrad3)" />
+  <polygon points="180,260 340,245 280,330" fill="url(#polyGrad1)" />
+  <polygon points="270,180 340,245 440,190" fill="url(#polyGrad2)" />
+  <polygon points="340,245 440,190 510,265" fill="url(#polyGrad3)" />
+  <polygon points="340,245 510,265 420,340" fill="url(#polyGrad1)" />
+  <polygon points="440,190 510,265 600,175" fill="url(#polyGrad2)" />
+  <polygon points="510,265 600,175 690,235" fill="url(#polyGrad3)" />
+  <polygon points="510,265 690,235 620,330" fill="url(#polyGrad1)" />
+  <polygon points="600,175 690,235 770,165" fill="url(#polyGrad2)" />
+  <polygon points="690,235 770,165 860,240" fill="url(#polyGrad3)" />
+  <polygon points="690,235 860,240 780,325" fill="url(#polyGrad1)" />
+  <polygon points="770,165 860,240 950,185" fill="url(#polyGrad2)" />
+  <polygon points="860,240 950,185 1040,250" fill="url(#polyGrad3)" />
+  <polygon points="860,240 1040,250 960,330" fill="url(#polyGrad1)" />
+  <polygon points="950,185 1040,250 1120,200" fill="url(#polyGrad2)" />
+  <polygon points="1040,250 1120,200 1200,260" fill="url(#polyGrad3)" />
+  <polygon points="1040,250 1200,260 1140,335" fill="url(#polyGrad1)" />
+
+  <!-- Aristas y conexiones -->
+  <g>
+    <line x1="0" y1="270" x2="90" y2="220" class="edge" />
+    <line x1="90" y1="220" x2="180" y2="260" class="edge" />
+    <line x1="0" y1="270" x2="80" y2="310" class="edge-dim" />
+    <line x1="80" y1="310" x2="180" y2="260" class="edge-dim" />
+    <line x1="90" y1="220" x2="270" y2="180" class="edge" />
+    <line x1="180" y1="260" x2="270" y2="180" class="edge" />
+    <line x1="180" y1="260" x2="340" y2="245" class="edge" />
+    <line x1="180" y1="260" x2="280" y2="330" class="edge-dim" />
+    <line x1="280" y1="330" x2="340" y2="245" class="edge-dim" />
+    <line x1="270" y1="180" x2="440" y2="190" class="edge" />
+    <line x1="270" y1="180" x2="340" y2="245" class="edge" />
+    <line x1="340" y1="245" x2="440" y2="190" class="edge" />
+    <line x1="340" y1="245" x2="510" y2="265" class="edge" />
+    <line x1="340" y1="245" x2="420" y2="340" class="edge-dim" />
+    <line x1="420" y1="340" x2="510" y2="265" class="edge-dim" />
+    <line x1="440" y1="190" x2="600" y2="175" class="edge" />
+    <line x1="440" y1="190" x2="510" y2="265" class="edge" />
+    <line x1="510" y1="265" x2="600" y2="175" class="edge" />
+    <line x1="510" y1="265" x2="690" y2="235" class="edge" />
+    <line x1="510" y1="265" x2="620" y2="330" class="edge-dim" />
+    <line x1="620" y1="330" x2="690" y2="235" class="edge-dim" />
+    <line x1="600" y1="175" x2="770" y2="165" class="edge" />
+    <line x1="600" y1="175" x2="690" y2="235" class="edge" />
+    <line x1="690" y1="235" x2="770" y2="165" class="edge" />
+    <line x1="690" y1="235" x2="860" y2="240" class="edge" />
+    <line x1="690" y1="235" x2="780" y2="325" class="edge-dim" />
+    <line x1="780" y1="325" x2="860" y2="240" class="edge-dim" />
+    <line x1="770" y1="165" x2="950" y2="185" class="edge" />
+    <line x1="770" y1="165" x2="860" y2="240" class="edge" />
+    <line x1="860" y1="240" x2="950" y2="185" class="edge" />
+    <line x1="860" y1="240" x2="1040" y2="250" class="edge" />
+    <line x1="860" y1="240" x2="960" y2="330" class="edge-dim" />
+    <line x1="960" y1="330" x2="1040" y2="250" class="edge-dim" />
+    <line x1="950" y1="185" x2="1120" y2="200" class="edge" />
+    <line x1="950" y1="185" x2="1040" y2="250" class="edge" />
+    <line x1="1040" y1="250" x2="1120" y2="200" class="edge" />
+    <line x1="1040" y1="250" x2="1200" y2="260" class="edge" />
+    <line x1="1040" y1="250" x2="1140" y2="335" class="edge-dim" />
+    <line x1="1140" y1="335" x2="1200" y2="260" class="edge-dim" />
+  </g>
+
+  <!-- Nodos luminosos -->
+  <g fill="#e0f7ff" filter="url(#glow)">
+    <circle cx="90" cy="220" r="3.2" />
+    <circle cx="180" cy="260" r="4.2" />
+    <circle cx="270" cy="180" r="5" class="node-pulse" />
+    <circle cx="340" cy="245" r="3.8" />
+    <circle cx="440" cy="190" r="4.5" />
+    <circle cx="510" cy="265" r="4" />
+    <circle cx="600" cy="175" r="5.2" class="node-pulse" />
+    <circle cx="690" cy="235" r="4.2" />
+    <circle cx="770" cy="165" r="5" class="node-pulse" />
+    <circle cx="860" cy="240" r="4.5" />
+    <circle cx="950" cy="185" r="4" />
+    <circle cx="1040" cy="250" r="4.8" class="node-pulse" />
+    <circle cx="1120" cy="200" r="3.5" />
+    <circle cx="80" cy="310" r="2.8" opacity="0.7" />
+    <circle cx="280" cy="330" r="3" opacity="0.7" />
+    <circle cx="420" cy="340" r="3" opacity="0.7" />
+    <circle cx="620" cy="330" r="3.2" opacity="0.7" />
+    <circle cx="780" cy="325" r="3" opacity="0.7" />
+    <circle cx="960" cy="330" r="3.2" opacity="0.7" />
+    <circle cx="1140" cy="335" r="2.8" opacity="0.7" />
+  </g>
+</svg>
