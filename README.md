@@ -34,42 +34,51 @@
 
 ---
 
-## ⚡ Sobre Mí
-
-Soy **Lino Enrique Sánchez**, Ingeniero de Software Full Stack apasionado por construir plataformas robustas, escalables y visualmente atractivas. Mi enfoque principal abarca el desarrollo de **APIs de alto rendimiento con FastAPI y Python**, interfaces reactivas modernas con **Vue 3 y Angular**, así como la integración avanzada de **Sistemas de Información Geográfica (GIS)** y soluciones de **Visión Artificial**.
-
-Me especializo en transformar problemas complejos en arquitecturas modulares, limpias y listas para entornos de producción.
+<!-- ================= SOBRE MÍ (DEV HUD & MATRIX) ================= -->
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=030d1a&stroke=00e5ff&strokeWidth=1.5&height=40&text=⚡%20PROFILE%20SYSTEM%20::%20DEVELOPER_INFO&fontSize=16&fontColor=00e5ff&fontAlignY=65" width="100%" />
+</div>
 
 <br/>
 
-<table width="100%">
-  <tr>
-    <td width="50%" valign="top">
-      <h4>🎯 Propuesta de Valor</h4>
-      <ul>
-        <li><strong>Arquitectura Escalable:</strong> Diseño de backends orientados a microservicios con validaciones estrictas y respuesta de baja latencia.</li>
-        <li><strong>Frontend Modular & Reactivo:</strong> Creación de interfaces componentizadas, fluidas y con foco en UX intuitiva y rendimiento.</li>
-        <li><strong>Sistemas Espaciales (GIS):</strong> Procesamiento y renderizado en tiempo real de capas georreferenciadas y polígonos complejos.</li>
-      </ul>
-    </td>
-    <td width="50%" valign="top">
-      <h4>💡 Filosofía & Metodología</h4>
-      <ul>
-        <li><strong>Clean Code & Principios SOLID:</strong> Código legible, testeable y fácil de mantener a largo plazo.</li>
-        <li><strong>Desarrollo Defensivo:</strong> Sanitización de entradas, control riguroso de errores y seguridad de extremo a extremo.</li>
-        <li><strong>Contenedorización & Automatización:</strong> Entornos consistentes y listos para despliegue continuo mediante Docker.</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+<div align="center">
 
-```typescript
-// 🚀 Developer Profile Object
-const LinoSanchez = {
-    title: "Full Stack Software Engineer",
-    coreBackend: ["FastAPI", "Python", "Node.js", "Express"],
-    coreFrontend: ["Vue 3 (Composition API / Pinia)", "Angular", "Tailwind CSS"],
-    databases: ["PostgreSQL", "MySQL", "MariaDB", "SQLite"],
-    specialties: ["Interactive GIS / Leaflet", "Computer Vision / Face-API.js", "Dockerized Environments"],
-    motto: "< Write Clean • Build Resilient • Scale Fast />"
-};
+| 🧬 **NÚCLEO TÉCNICO** | 🛡️ **ARQUITECTURA** | 🗺️ **GIS & VISIÓN** | 🚀 **DEVOPS** |
+| :---: | :---: | :---: | :---: |
+| `FastAPI • Python` | `Clean Architecture` | `Leaflet Spatial Maps` | `Docker Containers` |
+| `Vue 3 • Pinia` | `SOLID & Defensive` | `OpenStreetMap Engine` | `Linux Environments` |
+| `TypeScript • Node` | `High Concurrency` | `Face-API.js AI Vision` | `CI/CD & Deployment` |
+
+</div>
+
+<br/>
+
+<table>
+  <tr>
+    <td width="55%" valign="top">
+      <div align="left">
+        <h3><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" width="24" /> <code>System.Initialize(Lino_Sanchez)</code></h3>
+        <p>
+          Ingeniero de Software <strong>Full Stack</strong> especializado en la construcción de <strong>plataformas distribuidas, APIs asíncronas de alta velocidad</strong> y experiencias web reactivas de última generación.
+        </p>
+        <p>
+          Fusiono el poder de <strong>Python & FastAPI</strong> con la reactividad modular de <strong>Vue 3</strong>, incorporando procesamiento geoespacial avanzado (<strong>GIS</strong>) y modelos de <strong>Visión Artificial</strong> para resolver retos de ingeniería complejos.
+        </p>
+        <br/>
+        <div>
+          <img src="https://img.shields.io/badge/STATUS-READY_TO_DEPLOY-00e5ff?style=for-the-badge&logoColor=040D1A&color=040D1A&labelColor=00e5ff" />
+          <img src="https://img.shields.io/badge/CODE_STYLE-CLEAN_SOLID-007ACC?style=for-the-badge&logoColor=white&color=040D1A&labelColor=007ACC" />
+          <img src="https://img.shields.io/badge/LOCATION-MEXICO_%F0%9F%87%B2%F0%9F%87%BD-38bdf8?style=for-the-badge&logoColor=white&color=040D1A&labelColor=082f49" />
+        </div>
+      </div>
+    </td>
+    <td width="45%" valign="top">
+      <div align="left">
+        <h3><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" width="24" /> <code>Performance & Capabilities</code></h3>
+        
+```yaml
+⚡ Backend Latency:   [ Low / Async First ]
+✨ Frontend Speed:    [ Vite + Composition API ]
+🗺️ Spatial Queries:   [ Real-Time GeoJSON / GIS ]
+👁️ Vision Processing: [ Face-API Stream Detect ]
+🐳 Container Health:  [ 100% Docker Isolated ]
